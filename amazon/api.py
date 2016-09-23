@@ -158,7 +158,8 @@ class AmazonAPI(object):
             kwargs['Version'] = '2013-08-01'
 
         self.api = bottlenose.Amazon(
-            aws_key, aws_secret, aws_associate_tag, **kwargs)
+            aws_key, aws_secret, aws_associate_tag,
+            MaxQPS=1, **kwargs)
         self.aws_associate_tag = aws_associate_tag
         self.region = kwargs.get('Region', 'US')
 
